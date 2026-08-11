@@ -44,11 +44,3 @@ targets.forEach((el) => io.observe(el));
 
 // フッターの年号
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// お問い合わせフォーム
-// TODO: 送信先（フォームサービスのエンドポイント等）が決まったらここを差し替える
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('お問い合わせフォームは現在準備中です。\n公開時には送信先を設定します。');
-});
