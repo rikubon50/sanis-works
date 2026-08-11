@@ -371,8 +371,8 @@ a { color: inherit; text-decoration: none; }
 .about__text--full { max-width: 860px; margin-bottom: 72px; }
 
 .about__quote {
-  max-width: 860px;
   margin: 8px 0 40px;
+  text-align: center;
   padding: 32px 36px;
   background: #fff;
   border-radius: var(--radius);
@@ -386,19 +386,21 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.7;
 }
 
-.about__mission { max-width: 860px; margin-bottom: 72px; }
+.about__mission { max-width: 860px; margin-bottom: 40px; }
 .about__mission p { margin-bottom: 1.2em; }
 .about__mission strong { color: var(--c-primary); }
 .about__mission-quote {
   font-size: clamp(1.05rem, 2vw, 1.3rem);
   font-weight: 900;
   color: var(--c-primary-dark);
+  margin: 0 0 40px;
   padding: 24px 28px;
   background: #fff;
   border-left: 5px solid var(--c-primary);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 
 .about__visual img {
