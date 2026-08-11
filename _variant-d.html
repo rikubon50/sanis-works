@@ -16,6 +16,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+<style>
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 90px; z-index: 2; pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,60 C240,95 480,20 720,38 C960,56 1200,90 1440,45 L1440,90 L0,90 Z" fill="%2310314f"/></svg>') bottom / 100% 100% no-repeat;
+}
+.hero__figure { z-index: 3; bottom: 24px; }
+.hero__figure img { filter: drop-shadow(0 30px 36px rgba(7,28,48,0.45)); }
+</style>
 </head>
 <body>
 
@@ -73,7 +82,7 @@
         </div>
       </div>
       <div class="hero__figure">
-        <img src="img/hero-cutout.png" alt="掃除機で床を清掃するSANIS WORKSのスタッフ" width="720" height="1080">
+        <img src="img/hero-cutout.png" alt="掃除機で床を清掃するSANIS WORKSのスタッフ" width="720" height="1226">
       </div>
     </section>
 
