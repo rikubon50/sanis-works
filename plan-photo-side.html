@@ -18,11 +18,26 @@
   <link rel="stylesheet" href="css/style.css">
 
 <style>
-.hero::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 90px; z-index: 2; pointer-events: none;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,60 C240,95 480,20 720,38 C960,56 1200,90 1440,45 L1440,90 L0,90 Z" fill="%2310314f"/></svg>') bottom / 100% 100% no-repeat;
+.hero__figure2 { display: none; }
+@media (max-width: 1023px) {
+  .hero__figure { display: none; }
+  .hero__content {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-areas: "eyebrow eyebrow" "title title" "lead figure" "actions figure" "badges badges";
+    column-gap: 12px;
+    align-items: start;
+  }
+  .hero__eyebrow { grid-area: eyebrow; justify-self: start; }
+  .hero__title { grid-area: title; }
+  .hero__lead { grid-area: lead; font-size: 0.9rem; }
+  .hero__actions { grid-area: actions; align-self: end; }
+  .hero__actions .btn { width: 100%; padding: 0.9em 0.6em; font-size: 0.95rem; }
+  .hero__badges { grid-area: badges; margin-top: 20px; }
+  .hero__figure2 { display: block; grid-area: figure; align-self: end; }
+  .hero__figure2 img { width: 100%; filter: drop-shadow(0 18px 24px rgba(7, 28, 48, 0.4)); }
+  .hero { padding-bottom: 56px; }
 }
-.hero__figure { z-index: 3; bottom: 24px; }
 </style>
 </head>
 <body>
@@ -78,6 +93,7 @@
           <li>営業後の人件費削減</li>
           <li>従業員の負担軽減</li>
         </ul>
+        <div class="hero__figure2"><img src="img/hero-cutout.png" alt="" width="720" height="1080"></div>
         </div>
       </div>
       <div class="hero__figure">
