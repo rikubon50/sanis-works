@@ -9,6 +9,12 @@ onScroll();
 // ハンバーガーメニュー
 const burger = document.getElementById('burger');
 const nav = document.getElementById('global-nav');
+const closeMenu = () => {
+  nav.classList.remove('is-open');
+  burger.classList.remove('is-open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'メニューを開く');
+};
 burger.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   burger.classList.toggle('is-open', open);
@@ -16,13 +22,17 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
 });
 // メニュー内リンクを押したら閉じる
-nav.querySelectorAll('a').forEach((a) =>
-  a.addEventListener('click', () => {
-    nav.classList.remove('is-open');
-    burger.classList.remove('is-open');
-    burger.setAttribute('aria-expanded', 'false');
-  })
-);
+nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+// メニューの外側をタップ・クリックしたら閉じる
+document.addEventListener('click', (e) => {
+  if (!nav.classList.contains('is-open')) return;
+  if (nav.contains(e.target) || burger.contains(e.target)) return;
+  closeMenu();
+});
+// Escキーでも閉じる
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
+});
 
 // スクロールで要素をふわっと表示
 const targets = document.querySelectorAll(
