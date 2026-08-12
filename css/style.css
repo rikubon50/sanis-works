@@ -242,13 +242,15 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero__title {
-  font-size: clamp(1.9rem, 4.6vw, 3.4rem);
+  font-size: clamp(1.7rem, 4.6vw, 3.15rem);
   font-weight: 900;
   line-height: 1.5;
   letter-spacing: 0.02em;
   margin-bottom: 24px;
   text-wrap: balance;
 }
+/* 文節のかたまりごとに改行させ、単語の途中で折り返さないようにする */
+.hero__title .ph { display: inline-block; }
 .hero__title-em {
   background: linear-gradient(transparent 62%, rgba(255, 255, 255, 0.35) 62%);
   padding: 0 0.08em;
@@ -675,6 +677,7 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   font-size: 1.15rem;
   padding: 1em 3em;
+  white-space: nowrap;
   box-shadow: 0 6px 20px rgba(6, 199, 85, 0.35);
 }
 .btn--line:hover { box-shadow: 0 10px 26px rgba(6, 199, 85, 0.45); }
@@ -765,11 +768,28 @@ a { color: inherit; text-decoration: none; }
   .header__nav {
     position: fixed;
     inset: var(--header-h) 0 auto 0;
-    background: rgba(255, 255, 255, 0.98);
+    background: #fff;
     box-shadow: 0 12px 30px rgba(15, 46, 61, 0.15);
     transform: translateY(-120%);
     visibility: hidden;
     transition: transform 0.35s ease, visibility 0s 0.35s;
+  }
+
+  /* メニュー展開中は背後を暗くする（タップで閉じる） */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(16, 49, 79, 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+    z-index: 90;
+  }
+  body.menu-open::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
   }
   .header__nav.is-open {
     transform: translateY(0);
@@ -841,6 +861,7 @@ a { color: inherit; text-decoration: none; }
 
   .reason-item { padding: 22px 20px; gap: 16px; }
   .contact__line { padding: 36px 22px; }
+  .btn--line { display: block; width: 100%; padding: 1em 0.5em; font-size: 1.05rem; }
   .contact__qr { display: none; } /* スマホはQR不要（ボタンで直接LINEへ） */
   .cta-band__inner { justify-content: center; text-align: center; }
   .footer__info { flex-direction: column; gap: 12px; align-items: center; }
