@@ -12,12 +12,14 @@ const nav = document.getElementById('global-nav');
 const closeMenu = () => {
   nav.classList.remove('is-open');
   burger.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
   burger.setAttribute('aria-expanded', 'false');
   burger.setAttribute('aria-label', 'メニューを開く');
 };
 burger.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   burger.classList.toggle('is-open', open);
+  document.body.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', String(open));
   burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
 });
