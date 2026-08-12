@@ -196,36 +196,9 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero__content {
-  max-width: 660px;
+  max-width: 720px;
   position: relative;
   z-index: 2;
-}
-
-/* 人物切り抜き: 背景に直接立たせる */
-.hero__figure {
-  position: absolute;
-  bottom: 0;
-  right: max(3vw, calc((100% - 1300px) / 2));
-  width: clamp(280px, 31vw, 450px);
-  z-index: 1;
-  pointer-events: none;
-}
-.hero__figure::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -12%;
-  width: 135%;
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 45%, transparent 70%);
-}
-.hero__figure img {
-  position: relative;
-  width: 100%;
-  display: block;
-  filter: drop-shadow(0 30px 36px rgba(7, 28, 48, 0.45));
 }
 
 .hero__eyebrow {
@@ -810,9 +783,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 1023px) {
-  /* タブレット以下: 人物写真は非表示（かりん要望 2026-08-12） */
   .hero { padding-bottom: 72px; }
-  .hero__figure { display: none; }
   .hero__actions .btn { width: 100%; }
   .plan__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; gap: 40px; }
   .plan-card--featured { transform: none; }
